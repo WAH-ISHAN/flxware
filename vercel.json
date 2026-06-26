@@ -16,15 +16,7 @@
     ],
     "routes": [
         {
-            "src": "/(css|js|images|build)/(.*)",
-            "dest": "/public/$1/$2"
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "/public/favicon.ico"
-        },
-        {
-            "src": "/(.*)",
+            "src": "/(?!css|js|images|build|favicon\\.ico)(.*)",
             "dest": "/api/index.php"
         }
     ]
