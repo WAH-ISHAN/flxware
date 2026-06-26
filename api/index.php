@@ -2,9 +2,31 @@
 
 define('LARAVEL_START', microtime(true));
 
-// Enable display errors to see exactly what is failing
+// Aggressive error handling for Vercel 500 debugging
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
+
+set_error_handler(function($errno, $errstr, $errfile, $errline) {
+    echo "<h1>PHP Error</h1><p><b>Error:</b> [$errno] $errstr</p><p><b>File:</b> $errfile:$errline</p>";
+    return true; // Don't execute PHP internal error handler
+});
+
+set_exception_handler(function($exception) {
+    http_response_code(500);
+    echo "<h1>Uncaught Exception</h1><p><b>Message:</b> " . $exception->getMessage() . "</p>";
+    echo "<p><b>File:</b> " . $exception->getFile() . ":" . $exception->getLine() . "</p>";
+    echo "<h3>Stack Trace:</h3><pre>" . $exception->getTraceAsString() . "</pre>";
+    exit(1);
+});
+
+register_shutdown_function(function() {
+    $error = error_get_last();
+    if ($error !== null && in_array($error['type'], [E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE, E_USER_ERROR])) {
+        http_response_code(500);
+        echo "<h1>Fatal PHP Error</h1><p><b>Error:</b> " . $error['message'] . "</p>";
+        echo "<p><b>File:</b> " . $error['file'] . ":" . $error['line'] . "</p>";
+    }
+});
 
 // Force session, cache, and logging overrides for Vercel serverless environment
 // This prevents database errors from SQLite session/cache drivers at runtime
