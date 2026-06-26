@@ -7,14 +7,17 @@ define('LARAVEL_START', microtime(true));
 putenv('SESSION_DRIVER=cookie');
 putenv('CACHE_STORE=array');
 putenv('LOG_CHANNEL=stderr');
+putenv('DB_DATABASE=:memory:');
 
 $_ENV['SESSION_DRIVER'] = 'cookie';
 $_ENV['CACHE_STORE'] = 'array';
 $_ENV['LOG_CHANNEL'] = 'stderr';
+$_ENV['DB_DATABASE'] = ':memory:';
 
 $_SERVER['SESSION_DRIVER'] = 'cookie';
 $_SERVER['CACHE_STORE'] = 'array';
 $_SERVER['LOG_CHANNEL'] = 'stderr';
+$_SERVER['DB_DATABASE'] = ':memory:';
 
 // Register the Composer autoloader
 require __DIR__ . '/../vendor/autoload.php';
