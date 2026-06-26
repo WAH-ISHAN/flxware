@@ -35,35 +35,29 @@ register_shutdown_function(function() {
     }
 });
 
-// Force session, cache, and logging overrides for Vercel serverless environment
-// This prevents database errors from SQLite session/cache drivers at runtime
-putenv('APP_ENV=production');
-putenv('APP_DEBUG=true');
-putenv('APP_KEY=base64:LTQ7O+7rTTN5IX6Ywfm65pve12QewJrGL0mu9RI4M+w=');
-putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
-putenv('SESSION_DRIVER=cookie');
-putenv('CACHE_STORE=array');
-putenv('LOG_CHANNEL=stderr');
-putenv('DB_DATABASE=:memory:');
+// Helper function to set environment variables if not already set
+$setEnvDefault = function($key, $default) {
+    if (getenv($key) === false || getenv($key) === '') {
+        putenv("$key=$default");
+        $_ENV[$key] = $default;
+        $_SERVER[$key] = $default;
+    } else {
+        $_ENV[$key] = getenv($key);
+        $_SERVER[$key] = getenv($key);
+    }
+};
 
-$_ENV['APP_ENV'] = 'production';
-$_ENV['APP_DEBUG'] = 'true';
-$_ENV['APP_KEY'] = 'base64:LTQ7O+7rTTN5IX6Ywfm65pve12QewJrGL0mu9RI4M+w=';
-$_ENV['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
-$_ENV['SESSION_DRIVER'] = 'cookie';
-$_ENV['CACHE_STORE'] = 'array';
-$_ENV['LOG_CHANNEL'] = 'stderr';
-$_ENV['DB_DATABASE'] = ':memory:';
+// Force session, cache, and logging overrides for Vercel serverless environment if not already set
+$setEnvDefault('APP_ENV', 'production');
+$setEnvDefault('APP_DEBUG', 'true');
+$setEnvDefault('APP_KEY', 'base64:LTQ7O+7rTTN5IX6Ywfm65pve12QewJrGL0mu9RI4M+w=');
+$setEnvDefault('VIEW_COMPILED_PATH', '/tmp/storage/framework/views');
+$setEnvDefault('SESSION_DRIVER', 'cookie');
+$setEnvDefault('CACHE_STORE', 'array');
+$setEnvDefault('LOG_CHANNEL', 'stderr');
+$setEnvDefault('DB_DATABASE', ':memory:');
 
-$_SERVER['APP_ENV'] = 'production';
-$_SERVER['APP_DEBUG'] = 'true';
-$_SERVER['APP_KEY'] = 'base64:LTQ7O+7rTTN5IX6Ywfm65pve12QewJrGL0mu9RI4M+w=';
-$_SERVER['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
-$_SERVER['SESSION_DRIVER'] = 'cookie';
-$_SERVER['CACHE_STORE'] = 'array';
-$_SERVER['LOG_CHANNEL'] = 'stderr';
-$_SERVER['DB_DATABASE'] = ':memory:';
-
+// Cache remapping - always enforce to prevent write errors on Vercel's read-only FS
 putenv('APP_SERVICES_CACHE=/tmp/storage/bootstrap/cache/services.php');
 putenv('APP_PACKAGES_CACHE=/tmp/storage/bootstrap/cache/packages.php');
 putenv('APP_CONFIG_CACHE=/tmp/storage/bootstrap/cache/config.php');
