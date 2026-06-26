@@ -16,6 +16,7 @@ $dirs = [
     $storagePath . '/framework/sessions',
     $storagePath . '/bootstrap',
     $storagePath . '/bootstrap/cache',
+    $storagePath . '/logs',
 ];
 foreach ($dirs as $dir) {
     if (!is_dir($dir)) {
