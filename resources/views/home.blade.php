@@ -401,6 +401,94 @@
     </div>
 </section>
 
+<!-- Testimonials Section (Infinite Moving Cards) -->
+<section class="section section-light">
+    <div class="container">
+        <div class="section-header text-center fade-in">
+            <h2>What Our <span class="text-gradient">Clients Say</span></h2>
+            <p>Read inspiring stories and feedback from authors, partners, and clients who work with us.</p>
+        </div>
+        
+        <div class="infinite-cards-wrapper fade-in">
+            <div class="infinite-cards-track direction-right" style="--speed: 50s;">
+                <!-- First copy -->
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">Charles Dickens</span>
+                        <span class="infinite-card-author-title">A Tale of Two Cities</span>
+                    </div>
+                </div>
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">William Shakespeare</span>
+                        <span class="infinite-card-author-title">Hamlet</span>
+                    </div>
+                </div>
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"All that we see or seem is but a dream within a dream."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">Edgar Allan Poe</span>
+                        <span class="infinite-card-author-title">A Dream Within a Dream</span>
+                    </div>
+                </div>
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">Jane Austen</span>
+                        <span class="infinite-card-author-title">Pride and Prejudice</span>
+                    </div>
+                </div>
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">Herman Melville</span>
+                        <span class="infinite-card-author-title">Moby-Dick</span>
+                    </div>
+                </div>
+                
+                <!-- Second copy for seamless scrolling -->
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">Charles Dickens</span>
+                        <span class="infinite-card-author-title">A Tale of Two Cities</span>
+                    </div>
+                </div>
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">William Shakespeare</span>
+                        <span class="infinite-card-author-title">Hamlet</span>
+                    </div>
+                </div>
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"All that we see or seem is but a dream within a dream."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">Edgar Allan Poe</span>
+                        <span class="infinite-card-author-title">A Dream Within a Dream</span>
+                    </div>
+                </div>
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">Jane Austen</span>
+                        <span class="infinite-card-author-title">Pride and Prejudice</span>
+                    </div>
+                </div>
+                <div class="infinite-card">
+                    <p class="infinite-card-quote">"Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world."</p>
+                    <div class="infinite-card-author">
+                        <span class="infinite-card-author-name">Herman Melville</span>
+                        <span class="infinite-card-author-title">Moby-Dick</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- 11. Contact Section -->
 <section class="section section-light" id="contact">
     <div class="container">

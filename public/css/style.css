@@ -1219,3 +1219,90 @@ textarea.form-control {
     transform: translateZ(20px);
     margin: 0;
 }
+
+/* Infinite Moving Cards Section */
+.infinite-cards-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 3rem 0;
+    /* Mask gradient to fade out left/right edges */
+    mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+
+.infinite-cards-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scroll-cards var(--speed, 40s) linear infinite;
+}
+
+.infinite-cards-track.direction-left {
+    animation-direction: normal;
+}
+
+.infinite-cards-track.direction-right {
+    animation-direction: reverse;
+}
+
+.infinite-cards-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-cards {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.infinite-card {
+    width: 380px;
+    max-width: 90vw;
+    flex-shrink: 0;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.infinite-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.infinite-card-quote {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.infinite-card-author {
+    display: flex;
+    flex-direction: column;
+}
+
+.infinite-card-author-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+
+.infinite-card-author-title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
